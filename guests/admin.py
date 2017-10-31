@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Guest, Party
+from .models import Guest, Party, Function
 
 
 class GuestInline(admin.TabularInline):
@@ -20,5 +20,9 @@ class GuestAdmin(admin.ModelAdmin):
     list_filter = ('is_attending', 'is_child', 'meal', 'party__is_invited', 'party__category', 'party__rehearsal_dinner')
 
 
+class FunctionAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+
+admin.site.register(Function, FunctionAdmin)
 admin.site.register(Party, PartyAdmin)
 admin.site.register(Guest, GuestAdmin)

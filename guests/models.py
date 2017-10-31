@@ -16,12 +16,18 @@ ALLOWED_TYPES = [
 def _random_uuid():
     return uuid.uuid4().hex
 
+class Function(models.Model):
+    name = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 class Party(models.Model):
     """
     A party consists of one or more guests.
     """
     name = models.TextField()
+    function = models.ForeignKey(Function)
     type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
     category = models.CharField(max_length=20, null=True, blank=True)
     save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
