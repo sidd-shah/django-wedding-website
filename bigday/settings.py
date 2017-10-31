@@ -27,6 +27,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['13.126.223.99']
 
+#EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#EMAIL_HOST='smtp.gmail.com'
+#EMAIL_HOST_USER = 'sidd.scope@gmail.com'
+#EMAIL_HOST_PASSWORD = 'amlzsnkx'
+#EMAIL_PORT = 25
 
 # Application definition
 
