@@ -3,6 +3,9 @@
 {% block page_head %}
     <!-- Custom CSS -->
     <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+    <link href="{% static 'bigday/css/nanogallery.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bigday/css/nanogallery_light.min.css' %}" rel="stylesheet">
+
 {% endblock %}
 {% block page_content %}
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
@@ -126,7 +129,7 @@
     </section>
     {% include 'partials/event.html' %}
     <section id="niagara">
-        {% include 'partials/niagara.html' %}
+        {% include 'partials/map.html' %}
     </section>
 {% comment %}
         {% include 'partials/wedding-party.html' %}
@@ -142,6 +145,7 @@
     </section>
     {% include 'partials/proposal.html' %}
     {% include 'partials/save-the-dates.html' %}
+    {% include 'partials/gallery.html' %}
     <section id="contact" class="bg-dark">
         <div class="container">
             <div class="row">
@@ -167,4 +171,20 @@
     <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
     <!-- Custom Theme JavaScript -->
     <script src="{% static 'creative/js/creative.js' %}"></script>
+
+    <script src="{% static 'creative/js/jquery.nanogallery.min.js' %}"></script>
+
+    <script>
+    $(document).ready(function () {
+        $("#nanoGallery").nanoGallery({
+          thumbnailWidth: 'auto',
+          thumbnailHeight: 250,
+          theme: 'light',
+          thumbnailHoverEffect: [{ name: 'labelAppear75', duration: 300 }],
+          thumbnailGutterWidth : 0,
+          thumbnailGutterHeight : 0,
+          thumbnailLabel: { display: true, position: 'overImageOnMiddle', align: 'center' }
+        });
+      });
+      </script>
 {% endblock %}
