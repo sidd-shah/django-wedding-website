@@ -82,7 +82,9 @@ def invitation(request, invite_id):
         return HttpResponseRedirect(reverse('rsvp-confirm', args=[invite_id]))
     return render(request, template_name='guests/invitation.html', context={
         'party': party,
+        'guests':party.ordered_guests,
         'meals': MEALS,
+        'functions': [function.name for function in party.function.all()],
     })
 
 

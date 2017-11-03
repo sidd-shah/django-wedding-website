@@ -18,7 +18,13 @@ def _random_uuid():
     return uuid.uuid4().hex
 
 class Function(models.Model):
-    name = models.TextField()
+    FUNCTIONS = (
+        ('Shreya Mehendi', 'Shreya Mehendi'),
+        ('Sid Mehendi', 'Sid Mehendi'),
+        ('Wedding', 'Wedding'),
+        ('Celebration', 'Celebration')
+    )
+    name = models.CharField(max_length=100,choices=FUNCTIONS)
 
     def __str__(self):
         return self.name
@@ -28,7 +34,7 @@ class Party(models.Model):
     A party consists of one or more guests.
     """
     name = models.TextField()
-    function = models.ForeignKey(Function)
+    function = models.ManyToManyField(Function)
     type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
     category = models.CharField(max_length=20, null=True, blank=True)
     save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
@@ -60,6 +66,9 @@ class Party(models.Model):
     def guest_emails(self):
         return filter(None, self.guest_set.values_list('email', flat=True))
 
+    @property
+    def invitation_link(self):
+        return "http://sidheartshreya.com/"+self.invitation_id
 
 MEALS = [
     ('beef', 'cow'),

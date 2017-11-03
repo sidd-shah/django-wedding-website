@@ -10,7 +10,7 @@ from guests.models import Party, MEALS
 from guests.sms import send_sms
 
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
-INVITATION_SMS_TEMPLATE = 'Hi {0}. Sid and Shreya are getting hitched on 8th Jan. We would love to have you bless us.'
+INVITATION_SMS_TEMPLATE = 'Hi {0}. Sid and Shreya are getting hitched on 8th Jan. We would love to have you bless us with your presence. Kindly click on this link for your invitation here {1}.'
 
 def guess_party_by_invite_id_or_404(invite_id):
     try:
@@ -74,7 +74,7 @@ def send_all_invitations(test_only, mark_as_sent):
     for party in to_send_to:
         send_invitation_email(party, test_only=test_only)
         for guest in party.ordered_guests:
-            send_sms(guest.phone_number, INVITATION_SMS_TEMPLATE.format(guest.name))
+            send_sms(guest.phone_number, INVITATION_SMS_TEMPLATE.format(guest.name, guest.party.invitation_link))
         if mark_as_sent:
             party.invitation_sent = datetime.now()
             party.save()
