@@ -7,9 +7,10 @@ from django.core.urlresolvers import reverse
 from django.http import Http404
 from django.template.loader import render_to_string
 from guests.models import Party, MEALS
+from guests.sms import send_sms
 
 INVITATION_TEMPLATE = 'guests/email_templates/invitation.html'
-
+INVITATION_SMS_TEMPLATE = 'Hi {0}. Sid and Shreya are getting hitched on 8th Jan. We would love to have you bless us.'
 
 def guess_party_by_invite_id_or_404(invite_id):
     try:
@@ -72,6 +73,8 @@ def send_all_invitations(test_only, mark_as_sent):
     to_send_to = Party.in_default_order().filter(is_invited=True, invitation_sent=None).exclude(is_attending=False)
     for party in to_send_to:
         send_invitation_email(party, test_only=test_only)
+        for guest in party.ordered_guests:
+            send_sms(guest.phone_number, INVITATION_SMS_TEMPLATE.format(guest.name))
         if mark_as_sent:
             party.invitation_sent = datetime.now()
             party.save()

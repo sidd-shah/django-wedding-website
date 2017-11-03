@@ -7,8 +7,10 @@ import random
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from guests.models import Party
+from sms import send_sms
 
 
+SAVE_THE_DATE_SMS_TEMPLATE = 'Hi {0}. Sid and Shreya are getting hitched on 8th Jan. We would love to have you bless us.'
 SAVE_THE_DATE_TEMPLATE = 'guests/email_templates/save_the_date.html'
 SAVE_THE_DATE_CONTEXT_MAP = {
         'lions-head': {
@@ -60,6 +62,8 @@ def send_all_save_the_dates(test_only=False, mark_as_sent=False):
     to_send_to = Party.in_default_order().filter(is_invited=True, save_the_date_sent=None)
     for party in to_send_to:
         send_save_the_date_to_party(party, test_only=test_only)
+        for guest in party.ordered_guests:
+            send_sms(guest.phone_number, SAVE_THE_DATE_SMS_TEMPLATE.format(guest.name))
         if mark_as_sent:
             party.save_the_date_sent = datetime.now()
             party.save()

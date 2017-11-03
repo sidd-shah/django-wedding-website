@@ -4,6 +4,7 @@ import uuid
 
 from django.db import models
 from django.dispatch import receiver
+from django.core.validators import RegexValidator
 
 # these will determine the default formality of correspondence
 ALLOWED_TYPES = [
@@ -79,7 +80,9 @@ class Guest(models.Model):
     is_attending = models.NullBooleanField(default=None)
     meal = models.CharField(max_length=20, choices=MEALS, null=True, blank=True)
     is_child = models.BooleanField(default=False)
-
+    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
+                                 message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True)
     @property
     def name(self):
         return u'{} {}'.format(self.first_name, self.last_name)
