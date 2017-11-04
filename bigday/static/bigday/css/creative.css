@@ -43,12 +43,17 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+    font-family: 'HaloHandLetter';
+    font-size: 72px;
+    line-height: 42px;
+    font-weight: normal;
+    font-style: normal;
 }
 
 p {
     margin-bottom: 20px;
     font-size: 16px;
+    font-family: 'Tillana', cursive;
     line-height: 1.5;
 }
 
@@ -193,7 +198,7 @@ header {
 }
 
 #main-header {
-    background-image: url('../images/ny_skyline.jpg');
+    background-image: url('../images/SFMOMA_love.jpg');
 }
 
 header .header-content {
@@ -510,4 +515,18 @@ body {
 #footer {
     background-color: #222;
     padding-bottom: 30px;
+}
+
+.welcome-background {
+    background-image: url('../images/background/3.svg');
+    background-repeat: repeat-x;
+    font-family: 'Tillana', cursive;
+}
+
+@font-face {
+font-family: "HaloHandLetter";
+src: url("../css/font/halohandletter/halohandletter-webfont.woff") format("woff"),
+url("../css/font/halohandletter/halohandletter-webfont.otf") format("opentype");
+font-weight: normal;
+font-style: normal;
 }
