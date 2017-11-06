@@ -9,7 +9,23 @@
 
 {% endblock %}
 {% block page_content %}
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+
+    {% block main %}
+    <header id="main-header">
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1>When you meet the one who changes the way your heart beats, dance with them to that rhythm for as long as the song lasts</h1>
+                {% comment %}
+                <hr>
+                <h2>It's wedding week!</h2>
+                <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
+                <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
+                <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
+                {% endcomment %}
+            </div>
+        </div>
+    </header>
+    <nav id="mainNavigation" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -23,7 +39,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-center">
                     <li>
                         <a class="page-scroll" href="#main-header">Home</a>
                     </li>
@@ -45,21 +61,6 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    {% block main %}
-    <header id="main-header">
-        <div class="header-content">
-            <div class="header-content-inner">
-                <h1>We did it!!</h1>
-                {% comment %}
-                <hr>
-                <h2>It's wedding week!</h2>
-                <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
-                <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
-                <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
-                {% endcomment %}
-            </div>
-        </div>
-    </header>
     <section class="welcome-background" id="welcome">
         <div class="container">
             <div class="row">
@@ -144,9 +145,10 @@
     <section id="story" class="bg-dark">
         {% include 'partials/story.html' %}
     </section>
-    {% include 'partials/proposal.html' %}
-    {% include 'partials/save-the-dates.html' %}
-    {% include 'partials/gallery.html' %}
+    <!--{% include 'partials/proposal.html' %}-->
+    <section id="gallery" class="bg-light">
+        {% include 'partials/gallery.html' %}
+    </section>
     <section id="contact" class="bg-dark">
         <div class="container">
             <div class="row">
@@ -188,4 +190,33 @@
         });
       });
       </script>
+    <script>
+        $(document).ready(function(){
+            // hide .navbar first
+            $(".navbar").hide();
+            // fade in .navbar
+            $(function () {
+                $(window).scroll(function () {
+                    // set distance user needs to scroll before we fadeIn navbar
+                    if ($(this).scrollTop() > 300) {
+                        $('.navbar').fadeIn();
+                    } else {
+                        $('.navbar').fadeOut();
+                    }
+                });
+            });
+        });
+    </script>
+    <!--<script>-->
+        <!--var headerHeight = 900;-->
+        <!--$(window).bind('scroll', function () {-->
+        <!--if ($(window).scrollTop() > headerHeight) {-->
+            <!--$('#mainNavigation').addClass('navbar-fixed-top');-->
+            <!--$('#mainNavigation').removeClass('navbar-top');-->
+        <!--} else {-->
+            <!--$('#mainNavigation').removeClass('navbar-fixed-top');-->
+            <!--$('#mainNav').addClass('navbar-top');-->
+        <!--}-->
+        <!--});-->
+    <!--</script>-->
 {% endblock %}
