@@ -14,7 +14,7 @@
     <header id="main-header">
         <div class="header-content">
             <div class="header-content-inner">
-                <h1>When you meet the one who changes the way your heart beats, dance with them to that rhythm for as long as the song lasts</h1>
+
                 {% comment %}
                 <hr>
                 <h2>It's wedding week!</h2>
@@ -25,6 +25,11 @@
             </div>
         </div>
     </header>
+    <section id="quote" class="heart-background">
+        <div class="container">
+        <h1 class="text-center" style="letter-spacing:1px">When you meet the one who changes the way your heart beats, dance with them to that rhythm for as long as the song lasts</h1>
+            </div>
+    </section>
     <nav id="mainNavigation" class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -61,32 +66,32 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-    <section class="welcome-background" id="welcome">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center" style="top: 100px">
-                    <h2 class="section-heading">Welcome!</h2>
-                    <hr>
-                    <p>
-                        Hello friends and family! It's the week of the wedding!
-                    </p>
-                    <p>
-                        If you're looking for information about the event, look no further!
-                        Please see below for all the details regarding <a href="#event" class="page-scroll">Friday night's welcome party</a> and <a href="#saturday-event" class="page-scroll">Saturday's event</a>.
-                    </p>
-                    <p>
-                        To get added to the wedding whatsapp group first create an account and then send an
-                        email to <a href="mailto:whatsapp@coryandro.com">whatsapp@coryandro.com</a>.
-                        Also, the current front-runner for the wedding hashtag (if you're into that sort of thing) is #getlukky.
-                    </p>
-                    <p>
-                        Looking forward to seeing everyone soon!
-                    </p>
-                    <p class="pull-right">- Siddharth and Shreya</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--<section class="welcome-background" id="welcome">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-8 col-lg-offset-2 text-center" style="top: 100px">-->
+                    <!--<h2 class="section-heading">Welcome!</h2>-->
+                    <!--<hr>-->
+                    <!--<p>-->
+                        <!--Hello friends and family! It's the week of the wedding!-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--If you're looking for information about the event, look no further!-->
+                        <!--Please see below for all the details regarding <a href="#event" class="page-scroll">Friday night's welcome party</a> and <a href="#saturday-event" class="page-scroll">Saturday's event</a>.-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--To get added to the wedding whatsapp group first create an account and then send an-->
+                        <!--email to <a href="mailto:whatsapp@coryandro.com">whatsapp@coryandro.com</a>.-->
+                        <!--Also, the current front-runner for the wedding hashtag (if you're into that sort of thing) is #getlukky.-->
+                    <!--</p>-->
+                    <!--<p>-->
+                        <!--Looking forward to seeing everyone soon!-->
+                    <!--</p>-->
+                    <!--<p class="pull-right">- Siddharth and Shreya</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</section>-->
     <section class="no-padding" id="navigation">
         <div class="container-fluid">
             <div class="row no-gutter">
@@ -132,20 +137,20 @@
     <section id="couple" class="heart-background">
         {% include 'partials/couple.html' %}
     </section>
-    {% include 'partials/event.html' %}
+    <!--{% include 'partials/event.html' %}-->
     <section id="niagara">
         {% include 'partials/map.html' %}
     </section>
 {% comment %}
         {% include 'partials/wedding-party.html' %}
 {% endcomment %}
-    <section id="other-stuff" class="bg-primary">
+    <section id="other-stuff" class="">
         {% include 'partials/misc.html' %}
     </section>
     <section id="gifts">
         {% include 'partials/gifts.html' %}
     </section>
-    <section id="story" class="bg-dark">
+    <section id="story">
         {% include 'partials/story.html' %}
     </section>
     <!--{% include 'partials/proposal.html' %}-->
@@ -201,7 +206,7 @@
             $(function () {
                 $(window).scroll(function () {
                     // set distance user needs to scroll before we fadeIn navbar
-                    if ($(this).scrollTop() > 300) {
+                    if ($(this).scrollTop() > 100) {
                         $('.navbar').fadeIn();
                     } else {
                         $('.navbar').fadeOut();

@@ -552,8 +552,7 @@ body {
 }
 
 .heart-background {
-    background-image: url('../images/background/7.jpg');
-    background-repeat: repeat;
+    background-repeat: repeat-x;
     font-family: 'Tillana', cursive;
 }
 
@@ -572,7 +571,7 @@ body {
 }
 
 .couple-box h3 {
-line-height: 55px;
+    line-height: 55px;
 }
 
 @font-face {
