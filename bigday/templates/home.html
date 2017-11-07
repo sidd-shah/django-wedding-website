@@ -3,6 +3,7 @@
 {% block page_head %}
     <!-- Custom CSS -->
     <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+    <link href="{% static 'bigday/css/float_labels.css' %}" rel="stylesheet">
     <link href="{% static 'bigday/css/nanogallery.min.css' %}" rel="stylesheet">
     <link href="{% static 'bigday/css/nanogallery_light.min.css' %}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800" rel="stylesheet">
@@ -58,7 +59,10 @@
                         <a class="page-scroll" href="#story">Our Story</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Find Reservation</a>
+                        <a class="page-scroll" href="#other-stuff">Everything Else!</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">My Invitation</a>
                     </li>
                 </ul>
             </div>
@@ -144,12 +148,7 @@
 {% comment %}
         {% include 'partials/wedding-party.html' %}
 {% endcomment %}
-    <section id="other-stuff" class="">
-        {% include 'partials/misc.html' %}
-    </section>
-    <section id="gifts">
-        {% include 'partials/gifts.html' %}
-    </section>
+
     <section id="story">
         {% include 'partials/story.html' %}
     </section>
@@ -157,20 +156,14 @@
     <section id="gallery" class="bg-light">
         {% include 'partials/gallery.html' %}
     </section>
-    <section id="contact" class="bg-dark">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Contact us!</h2>
-                    <hr class="primary">
-                    <p>If you have any questions don't hesitate to reach out!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:hello@coryandro.com">hello@coryandro.com</a></p>
-                </div>
-            </div>
-        </div>
+    <section id="other-stuff" class="">
+        {% include 'partials/misc.html' %}
+    </section>
+    <section id="gifts">
+        {% include 'partials/gifts.html' %}
+    </section>
+    <section id="contact" class="">
+        {%include 'partials/my-invitation.html' %}
     </section>
     {% endblock %}
 {% endblock %}
@@ -227,4 +220,84 @@
         <!--}-->
         <!--});-->
     <!--</script>-->
+<script>
+    /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
+**************************************************/
+
+(function ($) {
+    $.fn.floatLabels = function (options) {
+
+        // Settings
+        var self = this;
+        var settings = $.extend({}, options);
+
+
+        // Event Handlers
+        function registerEventHandlers() {
+            self.on('input keyup change', 'input, textarea', function () {
+                actions.swapLabels(this);
+            });
+        }
+
+
+        // Actions
+        var actions = {
+            initialize: function() {
+                self.each(function () {
+                    var $this = $(this);
+                    var $label = $this.children('label');
+                    var $field = $this.find('input,textarea').first();
+
+                    if ($this.children().first().is('label')) {
+                        $this.children().first().remove();
+                        $this.append($label);
+                    }
+
+                    var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
+
+                    $label.data('placeholder-text', placeholderText);
+                    $label.data('original-text', $label.text());
+
+                    if ($field.val() == '') {
+                        $field.addClass('empty')
+                    }
+                });
+            },
+            swapLabels: function (field) {
+                var $field = $(field);
+                var $label = $(field).siblings('label').first();
+                var isEmpty = Boolean($field.val());
+
+                if (isEmpty) {
+                    $field.removeClass('empty');
+                    $label.text($label.data('original-text'));
+                }
+                else {
+                    $field.addClass('empty');
+                    $label.text($label.data('placeholder-text'));
+                }
+            }
+        }
+
+
+        // Initialization
+        function init() {
+            registerEventHandlers();
+
+            actions.initialize();
+            self.each(function () {
+                actions.swapLabels($(this).find('input,textarea').first());
+            });
+        }
+        init();
+
+
+        return this;
+    };
+
+    $(function () {
+        $('.float-label-control').floatLabels();
+    });
+})(jQuery);
+</script>
 {% endblock %}

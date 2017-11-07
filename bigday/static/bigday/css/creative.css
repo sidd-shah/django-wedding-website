@@ -112,7 +112,7 @@ aside {
 .navbar-default .nav>li>a:focus {
     padding-right:20px;
     padding-left:20px;
-    font-size: 35px;
+    font-size: 25px;
     color: rgb(28,56,81);
 }
 
@@ -581,3 +581,6 @@ url("../css/font/halohandletter/halohandletter-webfont.otf") format("opentype");
 font-weight: normal;
 font-style: normal;
 }
+
+
+
