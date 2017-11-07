@@ -152,3 +152,19 @@ def test_email(request, template_id):
 def _base64_encode(filepath):
     with open(filepath, "rb") as image_file:
         return base64.b64encode(image_file.read())
+
+def find_my_invite(request):
+    first_name = request.GET.get('first_name')
+    last_name = request.GET.get('last_name')
+    phone = request.GET.get('phone')
+    try:
+        guest = Guest.objects.get(first_name__iexact=first_name, last_name__iexact=last_name, phone_number=phone)
+        party = guest.party
+        return render(request, template_name='guests/invitation.html', context={
+            'party': party,
+            'guests': party.ordered_guests,
+            'meals': MEALS,
+            'functions': [function.name for function in party.function.all()],
+        })
+    except:
+        return render(request, template_name='guests/invite_not_found.html')
