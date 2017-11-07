@@ -551,6 +551,30 @@ body {
     font-family: 'Tillana', cursive;
 }
 
+.heart-background {
+    background-image: url('../images/background/7.jpg');
+    background-repeat: repeat;
+    font-family: 'Tillana', cursive;
+}
+
+.couple-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 5px 5px 5px #888888;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.couple-box {
+    margin: 50px auto 0;
+    max-width: 400px;
+}
+
+.couple-box h3 {
+line-height: 55px;
+}
+
 @font-face {
 font-family: "HaloHandLetter";
 src: url("../css/font/halohandletter/halohandletter-webfont.woff") format("woff"),
