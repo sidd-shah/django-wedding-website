@@ -1,67 +1,75 @@
-{% extends 'base.html' %}
 {% load staticfiles %}
 {% block page_head %}
-    <link href="{% static 'bigday/css/invitation.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+<link href="{% static 'bigday/css/invitation.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
 {% endblock %}
-{% block page_content %}
-    <div class="container" id="invitation-body">
-        <section>
-            <h3>Dearest,</h3>
-            <h3>{{party.name}}</h3>
-            <!--{% for guest in guests %}-->
-            <!--{{ guest.name }}{% if not forloop.last %}, {% endif %}-->
-            <!--{% endfor %}</h3>-->
-            We are extremely excited to invite you to our special day.
-        </section>
+<div class="container" id="invitation-body">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h2 class="section-heading">My&nbsp; Invitation!</h2>
+            <hr class="primary">
+
+        </div>
+    </div>
+    <div class="row">
+        <p>Dearest,</p>
+        <p>{{party.name}}<p/>
+        <!--{% for guest in guests %}-->
+        <!--{{ guest.name }}{% if not forloop.last %}, {% endif %}-->
+        <!--{% endfor %}</h3>-->
+        <p>Your love and friendship have helped us become who we are. Together with our parents, we invite you to
+                share our joy and support our love, as we exchange vows and celebrate our marriage.</p>
+    </div>
+    <div class="row">
         {% if 'Shreya Mehendi' in functions %}
         <section class="col-md-6 text-center">
             <div id="invitation-details">
-            <h2>Shreya Mehendi</h2>
-            <p class="lead">
-                Jan 7, 2018, at 4:30 pm<br>
-                Ravine Vineyard<br>
-                Niagara-on-the-Lake, ON, Canada
-            </p>
+                <h2>Mehendi</h2>
+                <p class="lead">
+                    Jan 7, 2018, at 11:30 am<br>
+                    No. 1 Party Hall, Sumer Nagar<br>
+                    S.V. Road, Borivali (W), Mumbai
+                </p>
             </div>
         </section>
         {% endif %}
         {% if 'Sid Mehendi' in functions %}
         <section class="col-md-6 text-center">
             <div id="invitation-details">
-            <h2>Sid Mehendi</h2>
-            <p class="lead">
-                Jan 7, 2018, at 4:30 pm<br>
-                Ravine Vineyard<br>
-                Niagara-on-the-Lake, ON, Canada
-            </p>
+                <h2>Mandap</h2>
+                <p class="lead">
+                    Jan 7, 2018, at 4:30 pm<br>
+                    9, Rushabhdev, Vallabh Baug Lane<br>
+                    Ghatkopar East, Mumbai
+                </p>
             </div>
         </section>
         {% endif %}
         {% if 'Wedding' in functions %}
         <section class="col-md-6 text-center">
             <div id="invitation-details">
-            <h2>Siddharth and Shreya Wedding</h2>
-            <p class="lead">
-                Jan 8, 2018, at 4:30 pm<br>
-                Ravine Vineyard<br>
-                Niagara-on-the-Lake, ON, Canada
-            </p>
+                <h2>Wedding Ceremony</h2>
+                <p class="lead">
+                    Jan 8, 2018, at 4:30 pm<br>
+                    Interlink Banquets, D - Wing, 2nd Floor<br>
+                    Neelkanth Business Park, Mumbai
+                </p>
             </div>
         </section>
         {% endif %}
         {% if 'Celebration' in functions %}
         <section class="col-md-6 text-center">
             <div id="invitation-details">
-            <h2>Siddharth and Shreya Wedding Celebration and Dinner</h2>
-            <p class="lead">
-                Jan 8, 2018, at 8:00 pm<br>
-                Ravine Vineyard<br>
-                Niagara-on-the-Lake, ON, Canada
-            </p>
+                <h2>Wedding Celebration and Dinner</h2>
+                <p class="lead">
+                    Jan 8, 2018, at 8:00 pm<br>
+                    Interlink Banquets, D - Wing, 2nd Floor<br>
+                    Neelkanth Business Park, Mumbai
+                </p>
             </div>
         </section>
         {% endif %}
-        <section class="col-md-6">
+    </div>
+    <section class="col-md-6">
         <form data-toggle="validator" id="invitation-details" class="form-horizontal" method="post">
             <h2 id="rsvp-header" class="text-center">RSVP</h2>
             <div class="clearfix"></div>
@@ -71,29 +79,31 @@
                 {% with 'attending-'|add:guest.unique_id as attending_label %}
                 <label for="{{ attending_label }}" class="col-sm-3 control-label">{{ guest.name }}</label>
                 <label class="radio-inline">
-                    <input class="attending-radio" type="radio" name="{{ attending_label }}" value="yes" {% if guest.is_attending %}checked="checked"{% endif %} required> will attend
+                    <input class="attending-radio" type="radio" name="{{ attending_label }}"
+                           value="yes" {% if guest.is_attending %} checked="checked" {% endif %} required> will attend
                 </label>
                 <label class="radio-inline">
-                    <input class="attending-radio" type="radio" name="{{ attending_label }}" value="no" {% if guest.is_attending == False %}checked="checked"{% endif %} required> will not attend
+                    <input class="attending-radio" type="radio" name="{{ attending_label }}"
+                           value="no" {% if not guest.is_attending %} checked="checked" {% endif %} required> will not
+                    attend
                 </label>
                 {% endwith %}
             </div>
             {% endfor %}
             <div class="form-group col-sm-12">
-                <input type="text" name="comments" class="form-control" placeholder="Questions/comments/well wishes" >
+                <input type="text" name="comments" class="form-control" placeholder="Questions/comments/well wishes">
             </div>
             <div class="form-group">
                 <div class="text-center">
-                    <input type="submit" class="btn btn-primary" value="Submit Response" />
+                    <input type="submit" class="btn btn-primary" value="Submit Response"/>
                 </div>
             </div>
         </form>
-        </section>
-    </div>
-{% endblock %}
+    </section>
+</div>
 {% block page_js %}
-    <script src="{% static 'validator.js' %}"></script>
-    <script>
+<script src="{% static 'validator.js' %}"></script>
+<script>
     $(function () {
         // enable/disable meal choices based on attendance
         $("input.attending-radio").change(function (e) {
@@ -124,5 +134,5 @@
             $(document.forms[0]).validator();
         });
     });
-    </script>
+</script>
 {% endblock %}

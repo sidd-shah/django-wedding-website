@@ -163,7 +163,12 @@
         {% include 'partials/gifts.html' %}
     </section>
     <section id="contact" class="">
-        {%include 'partials/my-invitation.html' %}
+        {% if party %}
+        {% include 'guests/invitation.html' %}
+        {% else %}
+
+        {% include 'partials/my-invitation.html' %}
+        {% endif %}
     </section>
     {% endblock %}
 {% endblock %}
