@@ -224,6 +224,18 @@ header {
 
 #main-header {
     background-image: url('../images/SFMOMA_love.jpg');
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+@media only screen and (max-device-width: 1024px) {
+    #main-header {
+        background-attachment: scroll;
+    }
 }
 
 header .header-content {
@@ -595,5 +607,7 @@ font-weight: normal;
 font-style: normal;
 }
 
-
-
+.sticky {
+    position:fixed;
+    top:0;
+}
