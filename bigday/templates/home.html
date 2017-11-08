@@ -1,190 +1,121 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block page_head %}
-    <!-- Custom CSS -->
-    <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
-    <link href="{% static 'bigday/css/float_labels.css' %}" rel="stylesheet">
-    <link href="{% static 'bigday/css/nanogallery.min.css' %}" rel="stylesheet">
-    <link href="{% static 'bigday/css/nanogallery_light.min.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+<link href="{% static 'bigday/css/float_labels.css' %}" rel="stylesheet">
+<link href="{% static 'bigday/css/nanogallery.min.css' %}" rel="stylesheet">
+<link href="{% static 'bigday/css/nanogallery_light.min.css' %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Tillana:400,500,600,700,800" rel="stylesheet">
 
 {% endblock %}
 {% block page_content %}
+<nav id="mainNavigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Siddharth Shreya</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-center">
+                <li>
+                    <a class="page-scroll" href="#main-header">Home</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#couple">Couple</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#venue">Venue</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#story">Our Story</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#other-stuff">Everything Else!</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">My Invitation</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+</nav>
+{% block main %}
+<header id="main-header">
+    <div class="header-content">
+        <div class="header-content-inner">
 
-    {% block main %}
-    <header id="main-header">
-        <div class="header-content">
-            <div class="header-content-inner">
-
-                {% comment %}
-                <hr>
-                <h2>It's wedding week!</h2>
-                <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
-                <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
-                <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
-                {% endcomment %}
-            </div>
+            {% comment %}
+            <hr>
+            <h2>It's wedding week!</h2>
+            <a href="#welcome" class="btn btn-info btn-xl page-scroll">Welcome</a>
+            <a href="#event" class="btn btn-primary btn-xl page-scroll">Friday</a>
+            <a href="#saturday-event" class="btn btn-success btn-xl page-scroll">Saturday</a>
+            {% endcomment %}
         </div>
-    </header>
-    <section id="quote" class="heart-background">
-        <div class="container">
-        <h1 class="text-center" style="letter-spacing:1px">When you meet the one who changes the way your heart beats, dance with them to that rhythm for as long as the song lasts</h1>
-            </div>
-    </section>
-    <nav id="mainNavigation" class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Siddharth Shreya</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-center">
-                    <li>
-                        <a class="page-scroll" href="#main-header">Home</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#couple">Couple</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#venue">Venue</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#story">Our Story</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#other-stuff">Everything Else!</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">My Invitation</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-    <!--<section class="welcome-background" id="welcome">-->
-        <!--<div class="container">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-8 col-lg-offset-2 text-center" style="top: 100px">-->
-                    <!--<h2 class="section-heading">Welcome!</h2>-->
-                    <!--<hr>-->
-                    <!--<p>-->
-                        <!--Hello friends and family! It's the week of the wedding!-->
-                    <!--</p>-->
-                    <!--<p>-->
-                        <!--If you're looking for information about the event, look no further!-->
-                        <!--Please see below for all the details regarding <a href="#event" class="page-scroll">Friday night's welcome party</a> and <a href="#saturday-event" class="page-scroll">Saturday's event</a>.-->
-                    <!--</p>-->
-                    <!--<p>-->
-                        <!--To get added to the wedding whatsapp group first create an account and then send an-->
-                        <!--email to <a href="mailto:whatsapp@coryandro.com">whatsapp@coryandro.com</a>.-->
-                        <!--Also, the current front-runner for the wedding hashtag (if you're into that sort of thing) is #getlukky.-->
-                    <!--</p>-->
-                    <!--<p>-->
-                        <!--Looking forward to seeing everyone soon!-->
-                    <!--</p>-->
-                    <!--<p class="pull-right">- Siddharth and Shreya</p>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</section>-->
-    <section class="no-padding" id="navigation">
-        <div class="container-fluid">
-            <div class="row no-gutter">
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#event" class="portfolio-box page-scroll">
-                        <img src="{% static 'bigday/images/ravine-nav.jpg' %}" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-name">
-                                    The Event
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#niagara" class="portfolio-box page-scroll">
-                        <img src="{% static 'bigday/images/prince-of-wales-hotel-nav.jpg' %}" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-name">
-                                    Niagara-on-the-Lake
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-sm-6">
-                    <a href="#story" class="portfolio-box page-scroll">
-                        <img src="{% static 'bigday/images/twelve-apostles-nav.jpg' %}" class="img-responsive" alt="">
-                        <div class="portfolio-box-caption">
-                            <div class="portfolio-box-caption-content">
-                                <div class="project-name">
-                                    Our Story
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="couple" class="heart-background">
-        {% include 'partials/couple.html' %}
-    </section>
-    <!--{% include 'partials/event.html' %}-->
-    <section id="venue">
-        {% include 'partials/map.html' %}
-    </section>
+    </div>
+</header>
+<div id="quote" class="heart-background">
+        <h3 class="text-center" style="letter-spacing:1px;">~ When you meet the one who changes the way your heart beats,
+            dance with them to that rhythm for as long as the song last ~ </h3>
+</div>
+<section id="couple">
+    {% include 'partials/couple.html' %}
+</section>
+<!--{% include 'partials/event.html' %}-->
+<section id="venue">
+    {% include 'partials/map.html' %}
+</section>
 {% comment %}
-        {% include 'partials/wedding-party.html' %}
+{% include 'partials/wedding-party.html' %}
 {% endcomment %}
 
-    <section id="story">
-        {% include 'partials/story.html' %}
-    </section>
-    <!--{% include 'partials/proposal.html' %}-->
-    <section id="gallery" class="bg-light">
-        {% include 'partials/gallery.html' %}
-    </section>
-    <section id="other-stuff" class="">
-        {% include 'partials/misc.html' %}
-    </section>
-    <section id="gifts">
-        {% include 'partials/gifts.html' %}
-    </section>
-    <section id="contact" class="">
-        {% if party %}
-        {% include 'guests/invitation.html' %}
-        {% else %}
+<section id="story">
+    {% include 'partials/story.html' %}
+</section>
+<!--{% include 'partials/proposal.html' %}-->
+<section id="gallery" class="bg-light">
+    {% include 'partials/gallery.html' %}
+</section>
+<section id="other-stuff" class="">
+    {% include 'partials/misc.html' %}
+</section>
+<section id="gifts">
+    {% include 'partials/gifts.html' %}
+</section>
+<section id="contact" class="">
+    {% if party %}
+    {% include 'guests/invitation.html' %}
+    {% else %}
 
-        {% include 'partials/my-invitation.html' %}
-        {% endif %}
-    </section>
-    {% endblock %}
+    {% include 'partials/my-invitation.html' %}
+    {% endif %}
+</section>
+{% endblock %}
 {% endblock %}
 {% block page_js %}
-    <!-- Plugin JavaScript -->
-    <!-- Easing is for the vertical scroll animations -->
-    <script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
-    <!-- Automatically fit text based on screen size.-->
-    <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="{% static 'creative/js/creative.js' %}"></script>
+<!-- Plugin JavaScript -->
+<!-- Easing is for the vertical scroll animations -->
+<script src="{% static 'creative/js/jquery.easing.min.js' %}"></script>
+<!-- Automatically fit text based on screen size.-->
+<script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
+<!-- Custom Theme JavaScript -->
+<script src="{% static 'creative/js/creative.js' %}"></script>
 
-    <script src="{% static 'creative/js/jquery.nanogallery.min.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
+<script src="{% static 'creative/js/jquery.nanogallery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
 
-    <script>
+<script>
     $(document).ready(function () {
         $("#nanoGallery").nanoGallery({
           thumbnailWidth: 'auto',
@@ -196,36 +127,10 @@
           thumbnailLabel: { display: true, position: 'overImageOnMiddle', align: 'center' }
         });
       });
-      </script>
-    <script>
-        $(document).ready(function(){
-            // hide .navbar first
-            $(".navbar").hide();
-            // fade in .navbar
-            $(function () {
-                $(window).scroll(function () {
-                    // set distance user needs to scroll before we fadeIn navbar
-                    if ($(this).scrollTop() > 100) {
-                        $('.navbar').fadeIn();
-                    } else {
-                        $('.navbar').fadeOut();
-                    }
-                });
-            });
-        });
-    </script>
-    <!--<script>-->
-        <!--var headerHeight = 900;-->
-        <!--$(window).bind('scroll', function () {-->
-        <!--if ($(window).scrollTop() > headerHeight) {-->
-            <!--$('#mainNavigation').addClass('navbar-fixed-top');-->
-            <!--$('#mainNavigation').removeClass('navbar-top');-->
-        <!--} else {-->
-            <!--$('#mainNavigation').removeClass('navbar-fixed-top');-->
-            <!--$('#mainNav').addClass('navbar-top');-->
-        <!--}-->
-        <!--});-->
-    <!--</script>-->
+
+</script>
+
+
 <script>
     /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
 **************************************************/
@@ -305,16 +210,6 @@
         $('.float-label-control').floatLabels();
     });
 })(jQuery);
-</script>
 
-<script>
-    var animation = bodymovin.loadAnimation({
-      container: document.getElementById('lottie'), // Required
-      path: '{% static "bigday/lottie/red_heart.json" %}', // Required
-      renderer: 'svg', // Required
-      loop: true, // Optional
-      autoplay: true, // Optional
-      name: "Hello World", // Name for future reference. Optional.
-    })
 </script>
 {% endblock %}

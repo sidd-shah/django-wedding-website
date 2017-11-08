@@ -50,6 +50,10 @@ h6 {
     font-style: normal;
 }
 
+#quote h3 {
+    font-size: 30px;
+}
+
 p {
     margin-bottom: 20px;
     font-size: 16px;
@@ -95,6 +99,10 @@ aside {
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
+   -webkit-box-shadow: 0 8px 6px -6px #999;
+    -moz-box-shadow: 0 8px 6px -6px #999;
+    box-shadow: 0 8px 6px -6px #999;
+
 }
 
 .navbar-default .navbar-header .navbar-brand {
@@ -153,9 +161,7 @@ aside {
 
     .navbar-nav.navbar-center {
         position: absolute;
-        left: 50%;
-        margin-right: 10px;
-        transform: translatex(-50%);
+        transform: translatex(40%);
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -260,6 +266,12 @@ header .header-content .header-content-inner p {
     h1 {
         line-height: 65px;
     }
+    #quote {
+        padding: 10px;
+    }
+    #quote h3{
+        font-size: 42px;
+    }
     header {
         min-height: 100%;
     }
@@ -293,6 +305,7 @@ header .header-content .header-content-inner p {
 
 .section-heading {
     margin-top: 0;
+    font-weight: bold;
 }
 
 .service-box {
@@ -552,7 +565,7 @@ body {
 }
 
 .heart-background {
-    background-repeat: repeat-x;
+    background-color: #f5eee9;
     font-family: 'Tillana', cursive;
 }
 
