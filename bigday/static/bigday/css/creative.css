@@ -223,7 +223,7 @@ header {
 }
 
 #main-header {
-    background-image: url('../images/SFMOMA_love.jpg');
+    background-image: url('../images/cover_1.jpg');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;

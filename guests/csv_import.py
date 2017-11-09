@@ -41,30 +41,24 @@ def import_guests(path):
 
 
 def export_guests():
+    INVITATION_SMS_TEMPLATE = 'Hi *_{0}_*. Siddharth and Shreya are getting hitched on 8th Jan. We would love to have you bless us with your presence. Kindly click on this link for your invitation here {1}.'
     headers = [
-        'party_name', 'first_name', 'last_name', 'party_type',
-        'is_child', 'category', 'is_invited', 'is_attending',
-        'rehearsal_dinner', 'meal', 'email', 'comments'
+        'party_name', 'first_name', 'last_name', 'email', 'comments', 'invite_message'
     ]
     file = StringIO.StringIO()
     writer = csv.writer(file)
     writer.writerow(headers)
     for party in Party.in_default_order():
+        invite_message = INVITATION_SMS_TEMPLATE.format(party.name, party.invitation_link)
         for guest in party.guest_set.all():
             if guest.is_attending:
                 writer.writerow([
                     party.name,
                     guest.first_name,
                     guest.last_name,
-                    party.type,
-                    guest.is_child,
-                    party.category,
-                    party.is_invited,
-                    guest.is_attending,
-                    party.rehearsal_dinner,
-                    guest.meal,
                     guest.email,
                     party.comments,
+                    invite_message,
                 ])
     return file
 
