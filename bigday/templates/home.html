@@ -3,6 +3,7 @@
 {% block page_head %}
 <!-- Custom CSS -->
 <link href="{% static 'bigday/css/creative.css' %}" rel="stylesheet">
+<link href="{% static 'bigday/css/timeline.css' %}" rel="stylesheet">
 <link href="{% static 'bigday/css/float_labels.css' %}" rel="stylesheet">
 <link href="{% static 'bigday/css/nanogallery.min.css' %}" rel="stylesheet">
 <link href="{% static 'bigday/css/nanogallery_light.min.css' %}" rel="stylesheet">
@@ -91,8 +92,11 @@
 <section id="other-stuff" class="">
     {% include 'partials/misc.html' %}
 </section>
-<section id="gifts">
+
     {% include 'partials/gifts.html' %}
+</section>
+<section class="timeline">
+    {% include 'partials/timeline.html' %}
 </section>
 <section id="contact" class="">
     {% if party %}
@@ -112,6 +116,7 @@
 <script src="{% static 'creative/js/jquery.fittext.js' %}"></script>
 <!-- Custom Theme JavaScript -->
 <script src="{% static 'creative/js/creative.js' %}"></script>
+<script src="{% static 'creative/js/scrollreveal.min.js' %}"></script>
 
 <script src="{% static 'creative/js/jquery.nanogallery.min.js' %}"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.13.0/bodymovin.js" type="text/javascript"></script>
@@ -226,5 +231,58 @@
       name: "Hello World", // Name for future reference. Optional.
     })
 
+</script>
+<script>
+    $(function(){
+
+  window.sr = ScrollReveal();
+
+  if ($(window).width() < 768) {
+
+  	if ($('.timeline-content').hasClass('js--fadeInLeft')) {
+  		$('.timeline-content').removeClass('js--fadeInLeft').addClass('js--fadeInRight');
+  	}
+
+  	sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+  } else {
+
+  	sr.reveal('.js--fadeInLeft', {
+	    origin: 'left',
+	    distance: '300px',
+		  easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+	  sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+  }
+
+  sr.reveal('.js--fadeInLeft', {
+	    origin: 'left',
+	    distance: '300px',
+		  easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+	  sr.reveal('.js--fadeInRight', {
+	    origin: 'right',
+	    distance: '300px',
+	    easing: 'ease-in-out',
+	    duration: 800,
+	  });
+
+
+});
 </script>
 {% endblock %}
