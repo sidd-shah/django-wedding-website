@@ -612,7 +612,7 @@ font-style: normal;
     top:0;
 }
 
-div {
+div:not(.labelImageTitle,.labelDescription){
     text-align: justify;
     text-justify: inter-word;
 }
