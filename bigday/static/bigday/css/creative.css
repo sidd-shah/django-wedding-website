@@ -59,6 +59,7 @@ p {
     font-size: 16px;
     font-family: 'Tillana', cursive;
     line-height: 1.5;
+    text-align: justify;
 }
 
 
@@ -610,9 +611,4 @@ font-style: normal;
 .sticky {
     position:fixed;
     top:0;
-}
-
-div:not(.labelImageTitle,.labelDescription){
-    text-align: justify;
-    text-justify: inter-word;
 }
