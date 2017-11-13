@@ -35,10 +35,10 @@
                     <a class="page-scroll" href="#couple">Couple</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#venue">Venue</a>
+                    <a class="page-scroll" href="#story">Our Story</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#story">Our Story</a>
+                    <a class="page-scroll" href="#venue">Venue</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#other-stuff">Everything Else!</a>
@@ -69,35 +69,36 @@
 </header>
 <div id="quote" class="heart-background">
     <h3 class="text-center" style="letter-spacing:1px;">~ When you meet the one who changes the way your heart beats,
-        dance with them to that rhythm for as long as the song last ~ </h3>
+        dance with them to that rhythm for as long as the song lasts ~ </h3>
 </div>
 <section id="couple">
     {% include 'partials/couple.html' %}
 </section>
-<!--{% include 'partials/event.html' %}-->
-<section id="venue">
-    {% include 'partials/map.html' %}
-</section>
 {% comment %}
 {% include 'partials/wedding-party.html' %}
 {% endcomment %}
-
 <section id="story">
     {% include 'partials/story.html' %}
+</section>
+<section class="timeline">
+    {% include 'partials/timeline.html' %}
 </section>
 <!--{% include 'partials/proposal.html' %}-->
 <section id="gallery" class="bg-light">
     {% include 'partials/gallery.html' %}
 </section>
+<!--{% include 'partials/event.html' %}-->
+<section id="venue">
+    {% include 'partials/map.html' %}
+</section>
+
 <section id="other-stuff" class="">
     {% include 'partials/misc.html' %}
 </section>
 
     {% include 'partials/gifts.html' %}
 </section>
-<section class="timeline">
-    {% include 'partials/timeline.html' %}
-</section>
+
 <section id="contact" class="">
     {% if party %}
     {% include 'guests/invitation.html' %}
@@ -137,101 +138,6 @@
 
 </script>
 
-
-<script>
-    /* Float Label Pattern Plugin for Bootstrap 3.1.0 by Travis Wilson
-**************************************************/
-
-(function ($) {
-    $.fn.floatLabels = function (options) {
-
-        // Settings
-        var self = this;
-        var settings = $.extend({}, options);
-
-
-        // Event Handlers
-        function registerEventHandlers() {
-            self.on('input keyup change', 'input, textarea', function () {
-                actions.swapLabels(this);
-            });
-        }
-
-
-        // Actions
-        var actions = {
-            initialize: function() {
-                self.each(function () {
-                    var $this = $(this);
-                    var $label = $this.children('label');
-                    var $field = $this.find('input,textarea').first();
-
-                    if ($this.children().first().is('label')) {
-                        $this.children().first().remove();
-                        $this.append($label);
-                    }
-
-                    var placeholderText = ($field.attr('placeholder') && $field.attr('placeholder') != $label.text()) ? $field.attr('placeholder') : $label.text();
-
-                    $label.data('placeholder-text', placeholderText);
-                    $label.data('original-text', $label.text());
-
-                    if ($field.val() == '') {
-                        $field.addClass('empty')
-                    }
-                });
-            },
-            swapLabels: function (field) {
-                var $field = $(field);
-                var $label = $(field).siblings('label').first();
-                var isEmpty = Boolean($field.val());
-
-                if (isEmpty) {
-                    $field.removeClass('empty');
-                    $label.text($label.data('original-text'));
-                }
-                else {
-                    $field.addClass('empty');
-                    $label.text($label.data('placeholder-text'));
-                }
-            }
-        }
-
-
-        // Initialization
-        function init() {
-            registerEventHandlers();
-
-            actions.initialize();
-            self.each(function () {
-                actions.swapLabels($(this).find('input,textarea').first());
-            });
-        }
-        init();
-
-
-        return this;
-    };
-
-    $(function () {
-        $('.float-label-control').floatLabels();
-    });
-})(jQuery);
-
-
-</script>
-
-<script>
-    var animation = bodymovin.loadAnimation({
-      container: document.getElementById('lottie'), // Required
-      path: '{% static "bigday/lottie/newAnimation.json" %}', // Required
-      renderer: 'svg', // Required
-      loop: true, // Optional
-      autoplay: true, // Optional
-      name: "Hello World", // Name for future reference. Optional.
-    })
-
-</script>
 <script>
     $(function(){
 
