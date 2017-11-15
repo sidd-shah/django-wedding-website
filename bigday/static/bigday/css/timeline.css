@@ -119,6 +119,10 @@ a:hover, a:active, a:focus {
 .timeline-card a {
   margin-left: 20px;
 }
+.timeline-item:nth-child(1) .timeline-img-header {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url('../images/2009.jpg') center center no-repeat;
+  background-size: cover;
+}
 
 .timeline-item:nth-child(2) .timeline-img-header {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url('../images/bangalore.jpg') center center no-repeat;
@@ -134,23 +138,21 @@ a:hover, a:active, a:focus {
 }
 .timeline-item:nth-child(5) .timeline-img-header {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)),url("../images/doodle.png") center center no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 .timeline-item:nth-child(6) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/goddhana_1.jpg") center center no-repeat;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/bigday.jpg") center center no-repeat;
   background-size: cover;
 }
-.timeline-item:nth-child(7) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/goddhana_1.jpg") center center no-repeat;
-  background-size: cover;
-}
+
 .timeline .description {
     margin-top: 20px;
  }
 
 .timeline-img-header {
-  height: 200px;
+  height: 300px;
   position: relative;
+  margin-bottom: 20px;
 }
 .timeline-img-header h2 {
   color: #FFFFFF;
@@ -220,5 +222,5 @@ blockquote {
 }
 
 .vertical {
-    height: 400px;
+    height: 500px;
 }

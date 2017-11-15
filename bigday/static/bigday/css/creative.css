@@ -54,10 +54,13 @@ h6 {
     font-size: 30px;
 }
 
-p {
+.extra-margin {
     margin-bottom: 20px;
+}
+p {
+    margin-bottom: 5px;
     font-size: 16px;
-    font-family: 'Tillana', cursive;
+    font-family: 'roboto';
     line-height: 1.5;
 }
 
@@ -124,6 +127,8 @@ aside {
     padding-right:20px;
     padding-left:20px;
     font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 600;
     color: rgb(28,56,81);
 }
 
@@ -164,7 +169,7 @@ aside {
 
     .navbar-nav.navbar-center {
         position: absolute;
-        transform: translatex(40%);
+        transform: translatex(30%);
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -226,7 +231,7 @@ header {
 }
 
 #main-header {
-    background-image: url('../images/cover_1.jpg');
+    background-image: url('../images/cover_2.jpg');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
