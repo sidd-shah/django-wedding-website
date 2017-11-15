@@ -120,7 +120,7 @@ a:hover, a:active, a:focus {
   margin-left: 20px;
 }
 .timeline-item:nth-child(1) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url('../images/2009.jpg') center center no-repeat;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url('../images/2009.JPG') center center no-repeat;
   background-size: cover;
 }
 
