@@ -35,7 +35,7 @@ class Party(models.Model):
     """
     name = models.TextField()
     function = models.ManyToManyField(Function)
-    type = models.CharField(max_length=10, choices=ALLOWED_TYPES)
+    type = models.CharField(max_length=10, choices=ALLOWED_TYPES, blank=True, null=True)
     category = models.CharField(max_length=20, null=True, blank=True)
     save_the_date_sent = models.DateTimeField(null=True, blank=True, default=None)
     save_the_date_opened = models.DateTimeField(null=True, blank=True, default=None)
@@ -83,23 +83,21 @@ class Guest(models.Model):
     A single guest
     """
     party = models.ForeignKey(Party)
-    first_name = models.TextField()
+    first_name = models.TextField(null=True, blank=True)
     last_name = models.TextField(null=True, blank=True)
     email = models.TextField(null=True, blank=True)
     is_attending = models.NullBooleanField(default=None)
-    meal = models.CharField(max_length=20, choices=MEALS, null=True, blank=True)
-    is_child = models.BooleanField(default=False)
     phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
                                  message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-    phone_number = models.CharField(validators=[phone_regex], max_length=15, blank=True)
+    phone_number = models.CharField(unique=True, validators=[phone_regex], max_length=15, blank=True)
     @property
     def name(self):
         return u'{} {}'.format(self.first_name, self.last_name)
 
-    @property
-    def unique_id(self):
-        # convert to string so it can be used in the "add" templatetag
-        return unicode(self.pk)
-
-    def __unicode__(self):
-        return 'Guest: {} {}'.format(self.first_name, self.last_name)
+    # @property
+    # def unique_id(self):
+    #     # convert to string so it can be used in the "add" templatetag
+    #     return unicode(self.pk)
+    #
+    # def __unicode__(self):
+    #     return 'Guest: {} {}'.format(self.first_name, self.last_name)
