@@ -625,3 +625,15 @@ font-style: normal;
     position:fixed;
     top:0;
 }
+
+.invitation {
+    background-image: url('../images/invite.png');
+    font-family: 'Tillana', cursive;
+    background-position: contain;
+    background-size: cover;
+    height: 800px;
+}
+
+.invitation-content {
+    margin-top: 240px;
+}

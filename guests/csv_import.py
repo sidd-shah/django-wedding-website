@@ -14,6 +14,12 @@ def import_guests(path):
                 continue
             party_name, guests, function = row[:3]
             phone_numbers = row[3:]
+            if guests == 'Single':
+                party_name = 'Mr. '+ party_name
+            elif guests == 'Couple':
+                party_name = 'Mr. & Mrs.' + party_name
+            elif guests == 'Family':
+                party_name = 'Mr. ' + party_name + ' and Family'
             print phone_numbers
             if not party_name:
                 print 'skipping row {}'.format(row)
