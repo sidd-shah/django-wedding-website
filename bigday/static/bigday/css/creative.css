@@ -628,10 +628,15 @@ font-style: normal;
 
 .invitation {
     background-image: url('../images/invite.png');
+    background-repeat: no-repeat;
     font-family: 'Tillana', cursive;
-    background-position: contain;
-    background-size: cover;
-    height: 800px;
+    display:table-cell; vertical-align:middle; text-align:center
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: 1050px;
+	background-size: 85%;
+	background-position: center top;
 }
 
 .invitation-content {
