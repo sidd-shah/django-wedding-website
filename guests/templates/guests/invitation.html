@@ -12,17 +12,17 @@
     </div>
     <div class="row">
         <p>Dearest,</p>
-        <p>{{party.name}}<p/>
-        <!--{% for guest in guests %}-->
-        <!--{{ guest.name }}{% if not forloop.last %}, {% endif %}-->
-        <!--{% endfor %}</h3>-->
+        <p>{{party.name}}
+        <p/>
         <p>Your love and friendship have helped us become who we are. Together with our parents, we invite you to
-                share our joy and support our love, as we exchange vows and celebrate our marriage.</p>
+            share our joy and support our love, as we exchange vows and celebrate our marriage.</p>
     </div>
+</div>
+<div id="invitations">
     <div class="row">
-        {% if 'Shreya Mehendi' in functions %}
+        {% if 'Shreya Mehendi' not in functions %}
         <section class="col-md-6 text-center">
-            <div id="invitation-details">
+            <div id="mehendi" class="invitation">
                 <h2>Mehendi</h2>
                 <p class="lead">
                     Jan 7, 2018, at 11:30 am<br>
@@ -32,9 +32,9 @@
             </div>
         </section>
         {% endif %}
-        {% if 'Sid Mehendi' in functions %}
+        {% if 'Sid Mehendi' not in functions %}
         <section class="col-md-6 text-center">
-            <div id="invitation-details">
+            <div id="mandap" class="invitation">
                 <h2>Mandap</h2>
                 <p class="lead">
                     Jan 7, 2018, at 4:30 pm<br>
@@ -45,8 +45,8 @@
         </section>
         {% endif %}
         {% if 'Wedding' in functions %}
-        <section class="col-md-6 text-center">
-            <div id="invitation-details">
+        <section class="{% if functions.count > 1 %}col-md-offset-3{%endif%}col-md-6 text-center">
+            <div id="wedding-celebration" class="invitation">
                 <h2>Wedding Ceremony</h2>
                 <p class="lead">
                     Jan 8, 2018, at 4:30 pm<br>
@@ -55,10 +55,9 @@
                 </p>
             </div>
         </section>
-        {% endif %}
-        {% if 'Celebration' in functions %}
-        <section class="col-md-6 text-center">
-            <div id="invitation-details">
+        {% elif 'Celebration' in functions %}
+        <section class=" col-md-offset-3 col-md-6 text-center">
+            <div id="celebration" class="invitation">
                 <h2>Wedding Celebration and Dinner</h2>
                 <p class="lead">
                     Jan 8, 2018, at 8:00 pm<br>
@@ -75,9 +74,7 @@
             <div class="clearfix"></div>
             {% csrf_token %}
             {% for guest in party.ordered_guests.all %}
-            <div class="form-group" data-is-child="{{ guest.is_child }}">
-                {% with 'attending-'|add:guest.unique_id as attending_label %}
-                <label for="{{ attending_label }}" class="col-sm-3 control-label">{{ guest.name }}</label>
+            <div class="form-group">
                 <label class="radio-inline">
                     <input class="attending-radio" type="radio" name="{{ attending_label }}"
                            value="yes" {% if guest.is_attending %} checked="checked" {% endif %} required> will attend
@@ -87,7 +84,6 @@
                            value="no" {% if not guest.is_attending %} checked="checked" {% endif %} required> will not
                     attend
                 </label>
-                {% endwith %}
             </div>
             {% endfor %}
             <div class="form-group col-sm-12">
@@ -101,6 +97,7 @@
         </form>
     </section>
 </div>
+
 {% block page_js %}
 <script src="{% static 'validator.js' %}"></script>
 <script>
@@ -108,10 +105,7 @@
         // enable/disable meal choices based on attendance
         $("input.attending-radio").change(function (e) {
             var target = $(e.target);
-            if (target.closest('.form-group').data('is-child') === "True") {
-                // don't attempt to update meals for children, who don't have them.
-                return;
-            }
+
             var value = target.attr('value');
             var mealButtonContainer = target.closest('.form-group').next('.form-group');
             var mealButtons = mealButtonContainer.find('[type=radio]');
@@ -134,5 +128,7 @@
             $(document.forms[0]).validator();
         });
     });
+
+
 </script>
 {% endblock %}

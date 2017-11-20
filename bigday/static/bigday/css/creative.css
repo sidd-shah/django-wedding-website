@@ -694,3 +694,22 @@ font-style: normal;
   -webkit-box-shadow: none;
   border-radius: 0px;
 }
+
+#mehendi {
+    background-image: url('../images/invite.png');
+    background-size: 100%;
+}
+
+#mandap {
+    background-image: url('../images/invite.png');
+    background-size: 100%;
+}
+
+#wedding-celebration {
+    background-image: url('../images/invite.png');
+    background-size: 100%;
+}
+#celebration {
+    background-image: url('../images/invite.png');
+    background-size: 100%;
+}
