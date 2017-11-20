@@ -261,6 +261,12 @@ aside {
 	    background-size: 85%;
     }
 
+    .invite {
+        height: 700px;
+	    background-size: 85%;
+
+    }
+
     .invitation-padding {
         margin-top: 60px;
     }
@@ -681,6 +687,16 @@ font-style: normal;
 	background-position: center top;
 }
 
+.invite {
+    background-repeat: no-repeat;
+    display:table-cell; vertical-align:middle; text-align:center
+    font-family: 'Roboto';
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+	background-position: center top;
+}
+
 .transparent-input {
   border: 0;
   outline: 0;
@@ -696,20 +712,20 @@ font-style: normal;
 }
 
 #mehendi {
-    background-image: url('../images/invite.png');
+    background-image: url('../images/invites/shreya_mehendi.png');
     background-size: 100%;
 }
 
 #mandap {
-    background-image: url('../images/invite.png');
+    background-image: url('../images/invites/sid_mehendi.png');
     background-size: 100%;
 }
 
 #wedding-celebration {
-    background-image: url('../images/invite.png');
+    background-image: url('../images/invites/wedding_celebration.png');
     background-size: 100%;
 }
 #celebration {
-    background-image: url('../images/invite.png');
+    background-image: url('../images/invites/celebration_black.png');
     background-size: 100%;
 }
