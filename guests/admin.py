@@ -12,6 +12,7 @@ class PartyAdmin(admin.ModelAdmin):
                     'is_invited', 'is_attending')
     list_filter = ('type', 'category', 'is_invited', 'is_attending', 'rehearsal_dinner', 'invitation_opened')
     inlines = [GuestInline]
+    search_fields = ['name']
 
 
 class GuestAdmin(admin.ModelAdmin):
