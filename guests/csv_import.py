@@ -14,12 +14,11 @@ def import_guests(path):
                 continue
             party_name, guests, function = row[:3]
             phone_numbers = row[3:]
-            if guests == 'Single':
-                party_name = 'Mr. '+ party_name
-            elif guests == 'Couple':
-                party_name = 'Mr. & Mrs.' + party_name
+            party_name = party_name.title()
+            if guests == 'Couple':
+                party_name = 'Mr. & Mrs. ' + party_name
             elif guests == 'Family':
-                party_name = 'Mr. ' + party_name + ' and Family'
+                party_name = party_name + ' and Family'
             print phone_numbers
             if not party_name:
                 print 'skipping row {}'.format(row)
@@ -58,7 +57,7 @@ def export_guests():
             whatsapp_link = WHATSAPP_PREFIX.format(guest.phone_number, invite_message)
             writer.writerow([
                 party.name,
-                guest.phone_number,
+                guest.phone_number[1:],
                 invite_message,
                 whatsapp_link
             ])

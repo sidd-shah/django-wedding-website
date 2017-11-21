@@ -56,7 +56,7 @@ class Party(models.Model):
 
     @property
     def ordered_guests(self):
-        return self.guest_set.order_by('pk')
+        return self.guest_set.order_by('-date')
 
     @property
     def any_guests_attending(self):
@@ -68,7 +68,7 @@ class Party(models.Model):
 
     @property
     def invitation_link(self):
-        return "http://sidheartshreya.com/"+self.invitation_id
+        return "http://sidheartshreya.com/invite/"+self.invitation_id
 
 MEALS = [
     ('beef', 'cow'),
@@ -101,3 +101,13 @@ class Guest(models.Model):
     #
     # def __unicode__(self):
     #     return 'Guest: {} {}'.format(self.first_name, self.last_name)
+
+    @property
+    def whatsapp_message(self):
+        WHATSAPP_PREFIX = 'https://api.whatsapp.com/send?phone={0}&text={1}'
+        INVITATION_SMS_TEMPLATE = 'Hi *_{0}_*. Siddharth and Shreya are getting hitched on 8th Jan. We would love to have you bless us with your presence. Kindly click on this link for your invitation here {1}.'
+        invite_message = INVITATION_SMS_TEMPLATE.format(self.party.name, self.party.invitation_link)
+        invite_message = invite_message.replace(" ", "%20")
+        invite_message = invite_message.replace("&", "%26")
+        print invite_message
+        return WHATSAPP_PREFIX.format(self.phone_number, invite_message)
