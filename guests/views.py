@@ -5,6 +5,7 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.db.models import Count, Q
+from django.http import HttpResponseNotFound
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
@@ -154,11 +155,9 @@ def _base64_encode(filepath):
         return base64.b64encode(image_file.read())
 
 def find_my_invite(request):
-    first_name = request.GET.get('first_name')
-    last_name = request.GET.get('last_name')
     phone = request.GET.get('phone')
     try:
-        guest = Guest.objects.get(first_name__iexact=first_name, last_name__iexact=last_name, phone_number=phone)
+        guest = Guest.objects.get(phone_number=phone)
         party = guest.party
         return render(request, template_name='guests/invitation.html', context={
             'party': party,
@@ -167,4 +166,4 @@ def find_my_invite(request):
             'functions': [function.name for function in party.function.all()],
         })
     except:
-        return render(request, template_name='guests/invite_not_found.html')
+        return HttpResponseNotFound()

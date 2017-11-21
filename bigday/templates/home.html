@@ -90,10 +90,6 @@
 <section id="venue">
     {% include 'partials/map.html' %}
 </section>
-
-<section id="other-stuff" class="">
-    {% include 'partials/misc.html' %}
-</section>
 <section>
     {% include 'partials/gifts.html' %}
 </section>
@@ -186,6 +182,24 @@
 	  });
 
 
+});
+</script>
+<script>
+    $('#invite-form').submit(function() { // catch the form's submit event
+    $.ajax({ // create an AJAX call...
+        data: $(this).serialize(), // get the form data
+        type: $(this).attr('method'), // GET or POST
+        url: $(this).attr('action'), // the file to call
+        success: function(response) { // on success..
+            $('#contact').html(response); // update the DIV
+            $('html, body').animate({ scrollTop: $('#invitation-body').offset().top }, 'slow');
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            $("#error-message").removeAttr('hidden');
+            $("#phone").focus();
+        }
+    });
+    return false; // cancel original event to prevent form submitting
 });
 </script>
 {% endblock %}
