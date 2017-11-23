@@ -31,6 +31,7 @@ class GuestAdmin(admin.ModelAdmin):
     def send_whatsapp(self, obj):
         return "<a href="+obj.whatsapp_message+ ">Send Message on Whatsapp</a>"
     send_whatsapp.allow_tags = True
+    search_fields = ['party']
 
 class FunctionAdmin(admin.ModelAdmin):
     list_display = ('name',)
