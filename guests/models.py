@@ -110,4 +110,4 @@ class Guest(models.Model):
         invite_message = invite_message.replace(" ", "%20")
         invite_message = invite_message.replace("&", "%26")
         print invite_message
-        return WHATSAPP_PREFIX.format(self.phone_number, invite_message)
+        return WHATSAPP_PREFIX.format(self.phone_number[1:], invite_message)
