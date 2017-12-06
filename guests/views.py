@@ -67,6 +67,7 @@ def default_invite(request):
         'party': None,
         'guests': None,
         'functions': ['Celebration'],
+        'is_default': True,
     })
 
 def invitation(request, invite_id):

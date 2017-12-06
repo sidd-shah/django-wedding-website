@@ -141,7 +141,7 @@ a:hover, a:active, a:focus {
   background-size: contain;
 }
 .timeline-item:nth-child(6) .timeline-img-header {
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/bigday.jpg") center center no-repeat;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/background/beach_2.jpg") center center no-repeat;
   background-size: cover;
 }
 

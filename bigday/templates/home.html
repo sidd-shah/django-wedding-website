@@ -15,7 +15,7 @@
 
 {% endblock %}
 {% block page_content %}
-<nav id="mainNavigation" class="navbar navbar-default navbar-fixed-top">
+<nav id="mainNavigation" class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -91,9 +91,6 @@
     {% include 'partials/gallery.html' %}
 </section>
 <!--{% include 'partials/event.html' %}-->
-<section id="venue">
-    {% include 'partials/map.html' %}
-</section>
 <section>
     {% include 'partials/gifts.html' %}
 </section>
@@ -101,6 +98,7 @@
 <section id="contact">
     {% if functions %}
     {% include 'guests/invitation.html' %}
+    {% include 'partials/map.html' %}
     {% else %}
     {% include 'partials/my-invitation.html' %}
     {% endif %}
@@ -142,16 +140,11 @@
   if ($(window).width() < 768) {
 
   	if ($('.timeline-content').hasClass('js--fadeInLeft')) {
-  		$('.timeline-content').removeClass('js--fadeInLeft').addClass('js--fadeInRight');
+  		$('.timeline-content').removeClass('js--fadeInLeft');
   	}
-
-  	sr.reveal('.js--fadeInRight', {
-	    origin: 'right',
-	    distance: '100px',
-	    easing: 'ease-in-out',
-	    duration: 200,
-	  });
-
+  	if ($('.timeline-content').hasClass('js--fadeInLeft')) {
+  		$('.timeline-content').removeClass('js--fadeInLeft');
+  	}
   } else {
 
   	sr.reveal('.js--fadeInLeft', {
@@ -167,10 +160,7 @@
 	    easing: 'ease-in-out',
 	    duration: 400,
 	  });
-
-  }
-
-  sr.reveal('.js--fadeInLeft', {
+    sr.reveal('.js--fadeInLeft', {
 	    origin: 'left',
 	    distance: '200px',
 		  easing: 'ease-in-out',
@@ -183,7 +173,7 @@
 	    easing: 'ease-in-out',
 	    duration: 400,
 	  });
-
+  }
 
 });
 </script>

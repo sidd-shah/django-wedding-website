@@ -46,6 +46,7 @@ class Party(models.Model):
     rehearsal_dinner = models.BooleanField(default=False)
     is_attending = models.NullBooleanField(default=None)
     comments = models.TextField(null=True, blank=True)
+    groom_invite = models.NullBooleanField(null=True, blank=True)
 
     def __unicode__(self):
         return 'Party: {}'.format(self.name)

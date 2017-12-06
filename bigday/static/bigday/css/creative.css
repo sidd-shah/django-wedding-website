@@ -291,7 +291,7 @@ header {
 }
 
 #main-header {
-    background-image: url('../images/cover_2.jpg');
+    background-image: url('../images/background/beach_1.jpg');
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
@@ -726,11 +726,21 @@ font-style: normal;
     background-size: 100%;
 }
 
-#wedding-celebration {
-    background-image: url('../images/invites/wedding_celebration.png');
+#wedding-celebration-groom {
+    background-image: url('../images/invites/sid_wedding_celebration.png');
     background-size: 100%;
 }
-#celebration {
-    background-image: url('../images/invites/celebration_black.png');
+#wedding-celebration-bride {
+    background-image: url('../images/invites/shreya_wedding_celebration.png');
+    background-size: 100%;
+}
+
+#celebration-groom {
+    background-image: url('../images/invites/sid_celebration.png');
+    background-size: 100%;
+}
+
+#celebration-bride {
+    background-image: url('../images/invites/shreya_celebration.png');
     background-size: 100%;
 }

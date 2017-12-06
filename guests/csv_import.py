@@ -12,8 +12,8 @@ def import_guests(path):
             if first_row:
                 first_row = False
                 continue
-            party_name, guests, function = row[:3]
-            phone_numbers = row[3:]
+            party_name, guests, function, groom_invite = row[:4]
+            phone_numbers = row[4:]
             party_name = party_name.title()
             if guests == 'Couple':
                 party_name = 'Mr. & Mrs. ' + party_name
@@ -32,6 +32,7 @@ def import_guests(path):
             # party.type = party_type
             # party.category = category
             party.is_invited = True
+            party.groom_invite = groom_invite
             if not party.invitation_id:
                 party.invitation_id = uuid.uuid4().hex
             party.save()

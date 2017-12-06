@@ -10,12 +10,13 @@
 
         </div>
     </div>
-    <div class="row">
-        <p>Dearest,</p>
-        <p>{{party.name}}
+    <div class="row col-lg-12">
+        {% if not is_default %}
+        <p class="text-center">Dearest,</p>
+        <p class="text-center">{{party.name}}
+        {% endif%}
         <p/>
-        <p>Your love and friendship have helped us become who we are. Together with our parents, we invite you to
-            share our joy and support our love, as we exchange vows and celebrate our marriage.</p>
+        <p class="text-center">Together with our parents, we invite you to share our joy, as we exchange vows and celebrate our marriage.</p>
     </div>
 </div>
 <div id="invitations">
@@ -34,12 +35,12 @@
         {% endif %}
         {% if 'Wedding' in functions %}
         <section class="col-md-6 text-center">
-            <div id="wedding-celebration" class="invite">
+            <div id="{% if party.is_groom %}wedding-celebration-groom{% else %}wedding-celebration-bride{%endif%}" class="invite">
             </div>
         </section>
         {% elif 'Celebration' in functions %}
         <section class=" col-md-offset-3 col-md-6 text-center">
-            <div id="celebration" class="invite">
+            <div id="{% if party.is_groom %}celebration-groom{% else %}celebration-bride{%endif%}" class="invite">
             </div>
         </section>
         {% endif %}
