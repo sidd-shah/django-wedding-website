@@ -14,9 +14,8 @@ class GuestInline(admin.TabularInline):
 
 
 class PartyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'type', 'category', 'invitation_opened', 'invitation_link',
-                    'is_invited', 'is_attending')
-    list_filter = ('type', 'category', 'is_invited', 'is_attending', 'rehearsal_dinner', 'invitation_opened')
+    list_display = ('name', 'invitation_opened', 'invitation_link')
+    list_filter = ('function', 'groom_invite', 'invitation_opened')
     inlines = [GuestInline]
     search_fields = ['name']
 

@@ -34,13 +34,13 @@
         </section>
         {% endif %}
         {% if 'Wedding' in functions %}
-        <section class="col-md-6 text-center">
-            <div id="{% if party.is_groom %}wedding-celebration-groom{% else %}wedding-celebration-bride{%endif%}" class="invite">
+        <section class="{%if functions.count == 3 %}col-md-6{%else%}col-md-offset-3 col-md-6{%endif%} text-center">
+            <div id="{% if party.groom_invite %}wedding-celebration-groom{% else %}wedding-celebration-bride{%endif%}" class="invite">
             </div>
         </section>
         {% elif 'Celebration' in functions %}
         <section class=" col-md-offset-3 col-md-6 text-center">
-            <div id="{% if party.is_groom %}celebration-groom{% else %}celebration-bride{%endif%}" class="invite">
+            <div id="{% if party.groom_invite %}celebration-groom{% else %}celebration-bride{%endif%}" class="invite">
             </div>
         </section>
         {% endif %}

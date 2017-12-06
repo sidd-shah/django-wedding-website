@@ -32,7 +32,7 @@ def import_guests(path):
             # party.type = party_type
             # party.category = category
             party.is_invited = True
-            party.groom_invite = groom_invite
+            party.groom_invite = True if groom_invite == 'TRUE' else False
             if not party.invitation_id:
                 party.invitation_id = uuid.uuid4().hex
             party.save()
