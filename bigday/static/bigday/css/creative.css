@@ -210,7 +210,7 @@ aside {
 
     .navbar-nav.navbar-center {
         position: absolute;
-        transform: translatex(30%);
+        transform: translatex(50%);
     }
 
     .navbar-default .navbar-header .navbar-brand {
