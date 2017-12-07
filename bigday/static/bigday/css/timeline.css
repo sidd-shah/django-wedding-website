@@ -142,7 +142,7 @@ a:hover, a:active, a:focus {
 }
 .timeline-item:nth-child(6) .timeline-img-header {
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.4)), url("../images/background/beach_2.jpg") center center no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .timeline .description {
@@ -150,7 +150,7 @@ a:hover, a:active, a:focus {
  }
 
 .timeline-img-header {
-  height: 300px;
+  height: 350px;
   position: relative;
   margin-bottom: 20px;
 }
@@ -218,6 +218,10 @@ blockquote {
 
   .vertical {
     height: inherit;
+  }
+
+  .timeline-img-header {
+    height: 200px;
   }
 }
 
