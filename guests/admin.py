@@ -25,8 +25,9 @@ class PartyAdmin(admin.ModelAdmin):
 
 
 class GuestAdmin(admin.ModelAdmin):
-    list_display = ('party', 'email', 'is_attending', 'phone_number','send_whatsapp')
-    list_filter = ('first_name', 'last_name','is_attending', 'party__is_invited', 'party__category', 'party__rehearsal_dinner')
+    list_display = ('party', 'functions', 'phone_number','send_whatsapp')
+    list_filter = ('party__function', 'party__groom_invite')
+
     def send_whatsapp(self, obj):
         return "<a href="+obj.whatsapp_message+ ">Send Message on Whatsapp</a>"
     send_whatsapp.allow_tags = True

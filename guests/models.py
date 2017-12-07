@@ -71,6 +71,8 @@ class Party(models.Model):
     def invitation_link(self):
         return "http://sidheartshreya.com/invite/"+self.invitation_id
 
+
+
 MEALS = [
     ('beef', 'cow'),
     ('fish', 'fish'),
@@ -112,3 +114,8 @@ class Guest(models.Model):
         invite_message = invite_message.replace("&", "%26")
         print invite_message
         return WHATSAPP_PREFIX.format(self.phone_number[1:], invite_message)
+
+    @property
+    def functions(self):
+        functions = ",".join([function.name for function in self.party.function.all()])
+        return functions
