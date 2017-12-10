@@ -29,7 +29,7 @@ class GuestAdmin(admin.ModelAdmin):
     list_filter = ('party__function', 'party__groom_invite')
 
     def send_whatsapp(self, obj):
-        return "<a href="+obj.whatsapp_message+ ">Send Message on Whatsapp</a>"
+        return "<a href="+obj.whatsapp_message + " target=_blank>Send Message on Whatsapp</a>"
     send_whatsapp.allow_tags = True
     search_fields = ['party__name']
 
