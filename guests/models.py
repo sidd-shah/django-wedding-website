@@ -108,7 +108,7 @@ class Guest(models.Model):
     @property
     def whatsapp_message(self):
         WHATSAPP_PREFIX = 'https://api.whatsapp.com/send?phone={0}&text={1}'
-        INVITATION_SMS_TEMPLATE = 'Hi *_{0}_*. Siddharth and Shreya are tying the knot on 8th Jan. We would love to celebrate our special day with you. Kindly click on this link for your invitation here {1}'
+        INVITATION_SMS_TEMPLATE = 'Hi *_{0}_*. Siddharth and Shreya are tying the knot on 8th Jan. We would love to celebrate our special day with you. Kindly click on this link for your invitation {1}'
         invite_message = INVITATION_SMS_TEMPLATE.format(self.party.name.strip(), self.party.invitation_link)
         invite_message = invite_message.replace(" ", "%20")
         invite_message = invite_message.replace("&", "%26")
