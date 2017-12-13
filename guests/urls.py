@@ -1,13 +1,15 @@
 from django.conf.urls import url
 
 from guests.views import GuestListView, test_email, save_the_date_preview, save_the_date_random, export_guests, \
-    invitation, invitation_email_preview, invitation_email_test, rsvp_confirm, dashboard, find_my_invite, default_invite
+    invitation, invitation_email_preview, invitation_email_test, rsvp_confirm, dashboard, find_my_invite, default_invite,\
+    default_invite_all
 
 urlpatterns = [
     url(r'^guests/$', GuestListView.as_view(), name='guest-list'),
     url(r'^dashboard/$', dashboard, name='dashboard'),
     url(r'^guests/export$', export_guests, name='export-guest-list'),
     url(r'^invite$', default_invite, name='default-invite'),
+    url(r'^invite-all$', default_invite_all, name='default-invite'),
     url(r'^invite/(?P<invite_id>[\w-]+)/$', invitation, name='invitation'),
     url(r'^invite-email/(?P<invite_id>[\w-]+)/$', invitation_email_preview, name='invitation-email'),
     url(r'^invite-email-test/(?P<invite_id>[\w-]+)/$', invitation_email_test, name='invitation-email-test'),

@@ -175,3 +175,11 @@ def find_my_invite(request):
         })
     except:
         return HttpResponseNotFound()
+
+def default_invite_all(request):
+    return render(request, template_name='home.html', context={
+        'party': None,
+        'guests': None,
+        'functions': ['Shreya Mehendi','Wedding','Celebration'],
+        'is_default': True,
+    })
